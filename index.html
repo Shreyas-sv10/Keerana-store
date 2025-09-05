@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keeranna Store</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ================= NAVBAR ================= -->
+  <header id="navbar">
+    <div class="nav-logo">
+      <h1>🛒 Keeranna Store</h1>
+    </div>
+    <nav class="nav-links">
+      <ul>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#admin-panel">Admin</a></li>
+        <li><a href="#billing-section">Billing</a></li>
+        <li><a href="#records-section">Records</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <button id="logout-btn" class="hidden">Logout</button>
+    </div>
+  </header>
+
+  <!-- ================= LOGIN PAGE ================= -->
+  <main id="login-page" class="page">
+    <section class="login-card">
+      <h2>Login to Keeranna Store</h2>
+      <form id="login-form" class="form">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" required>
+        </div>
+
+        <button type="submit" class="btn-primary">Login</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- ================= DASHBOARD ================= -->
+  <main id="dashboard" class="page hidden">
+    <section class="welcome-section">
+      <h2>Welcome, <span id="user-name">Admin</span> 👋</h2>
+      <p>Manage your store, add items, generate bills, and track customer records.</p>
+    </section>
+
+    <!-- Dashboard Cards -->
+    <section class="dashboard-cards">
+      <div class="card">
+        <h3>Total Items</h3>
+        <p id="total-items">0</p>
+      </div>
+      <div class="card">
+        <h3>Total Customers</h3>
+        <p id="total-customers">0</p>
+      </div>
+      <div class="card">
+        <h3>Total Bills</h3>
+        <p id="total-bills">0</p>
+      </div>
+      <div class="card">
+        <h3>Revenue</h3>
+        <p id="total-revenue">₹0</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= ADMIN PANEL ================= -->
+  <section id="admin-panel" class="page hidden">
+    <h2>🛠️ Admin Panel</h2>
+    <p>Add or update store items below.</p>
+
+    <form id="item-form" class="form">
+      <div class="form-group">
+        <label for="item-name">Item Name:</label>
+        <input type="text" id="item-name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="item-price">Price per Kg (₹):</label>
+        <input type="number" id="item-price" required>
+      </div>
+
+      <button type="submit" class="btn-primary">Add / Update Item</button>
+    </form>
+
+    <div class="table-container">
+      <h3>Available Items</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Price/Kg</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="items-table">
+          <!-- Items will load here -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ================= BILLING SECTION ================= -->
+  <section id="billing-section" class="page hidden">
+    <h2>🧾 Generate Bill</h2>
+    <form id="bill-form" class="form">
+      <div class="form-group">
+        <label for="buyer-name">Buyer Name:</label>
+        <input type="text" id="buyer-name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="bill-item">Select Item:</label>
+        <select id="bill-item" required>
+          <!-- Items from admin panel will load here -->
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="bill-quantity">Quantity (Kg):</label>
+        <input type="number" id="bill-quantity" min="1" value="1" required>
+      </div>
+
+      <button type="submit" class="btn-primary">Generate Bill</button>
+    </form>
+
+    <!-- Bill Output -->
+    <div id="bill-output" class="bill-card">
+      <h3>Bill Preview</h3>
+      <p>No bill generated yet.</p>
+    </div>
+  </section>
+
+  <!-- ================= BUYER RECORDS ================= -->
+  <section id="records-section" class="page hidden">
+    <h2>📑 Buyer Records</h2>
+    <div class="search-box">
+      <input type="text" id="search-buyer" placeholder="Enter buyer name">
+      <button id="search-btn">Search</button>
+    </div>
+    <div id="records-output" class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Buyer</th>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Total (₹)</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody id="records-table">
+          <!-- Records will appear here -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer id="footer">
+    <p>© 2025 Keeranna Store. All Rights Reserved.</p>
+    <p>Built with ❤️ for local shopping convenience.</p>
+  </footer>
+
+  <!-- ================= MODALS (Placeholders) ================= -->
+  <div id="modal-overlay" class="hidden">
+    <div class="modal">
+      <h3 id="modal-title">Modal Title</h3>
+      <div id="modal-content">
+        <p>Modal content goes here.</p>
+      </div>
+      <button id="close-modal" class="btn-secondary">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+                                                    </html>
